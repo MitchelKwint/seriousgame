@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+
+header{
+    background-color: darkblue;
+    text-align: center;
+    flex-grow:0.2;
+}
+
+
+section{
+    background-color: lightcoral;
+    text-align: center;
+    flex-grow:1;
+}
+
+
+footer{
+    background-color: darkblue;
+    text-align: left;
+    flex-grow:0.2;
+}
+
+section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section button{
+  background-color: darkgoldenrod;
+  padding: 20px 50px;
+  margin: 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+section button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+section input{
+  padding: 20px;
+  margin: 10px;
+  color: #000;
+  border-radius: 5px;
+}
+
+section p #totalscore{
+  background-color: lightseagreen;
+  padding: 20px 30px;
+
+}
