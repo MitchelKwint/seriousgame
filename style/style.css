@@ -54,8 +54,3 @@ section input{
   color: #000;
   border-radius: 5px;
 }
-
-section p #totalscore{
-  background-color: lightseagreen;
-  padding: 20px 30px;
-}
