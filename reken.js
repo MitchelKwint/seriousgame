@@ -14,7 +14,7 @@ const totalscoreP = document.querySelector("#totalscore");
 //Define variables
 var score = 0;
 var scoreWrong = 0;
-var counter = 3;
+var counter = 30;
 var countdown = setInterval(countDownTime,1000);
 var currentQuestion;
 var currentAnswer;
