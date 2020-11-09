@@ -1,3 +1,6 @@
+//var char = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9'];
+var woorden = ['Tapijt','Pompoen','Geit','Rugzak','Kan','Ijzer','Bedankt','Zwart','Rouwen','Hamer','Aap','Ziek','Portefeuille','Ring','Schildpad','Kaart','Violet','Soldaat','Hoed','Yoghurt','Bel','Dolfijn','Dierlijk','Visser','Palmboom','Voetbal','Soldaat','Balpen','Stilte','Overhemd','Bak','Leisteen','Tapijt','Sokken','Hals','Kasteel','Kop','Papier','Haai','Perzik','Overhemd','Weg','Walvis','Driewieler','Schoen','Kop','Zwaard','Watermeloen','Moeder','Yoghurt','Plug','Broer','Tv','Mes','Slecht','Acht','Globe','Gitaar','Bal','Moeder','Puzzel','Varkensvlees','Kaas','Jurk','Pols','Fluitje','Timmerman','Fonteintje','Bus','Roze','Schilder','Pens','Fiets','Baby','Baard','Huis','Spelen','Rivier','Olijf','Rok','Appel','Trommel','Taart','Bal','Dak','Springen','Pyjama','Paard','Hoed','Schilderen'];
+
 
 const questionP = document.querySelector("#question");
 const answerInput = document.querySelector("#answer");
@@ -7,49 +10,33 @@ const scoreSpan = document.querySelector("#score");
 const timerSpan = document.querySelector("#timer");
 const totalscoreP = document.querySelector("#totalscore");
 
-
-
 var score = 0;
 var scoreWrong = 0;
 var counter = 30;
 var countdown = setInterval(countDownTime,1000);
 var currentQuestion;
 var currentAnswer;
-var operator;
 
 
 function generateQuestion(){
+    // currentQuestion = Math.random().toString(36).substring(2,9);
 
-    clearAnswerInput();
+    currentQuestion = woorden[Math.floor(Math.random() * woorden.length)];
 
-    const firstNum = Math.floor(Math.random() * 101);
-    const secNum = Math.floor(Math.random() * 101);
-
-
-    const rand = Math.floor(Math.random() * 4);
-    if (rand === 0) operator = "+";
-    else if (rand === 1) operator = "/";
-    else if (rand === 2) operator = "-";
-    else if (rand === 3) operator = "*";
-    else return "Error";
-
-    currentQuestion = firstNum + " " + operator + " " + secNum;
-
-    currentAnswer = eval(currentQuestion);
-
-
-    if (operator = "/") currentAnswer = Math.round(eval(currentQuestion));
+    currentAnswer = currentQuestion;
 
     return currentQuestion;
+
 }
 
+console.log(currentQuestion)
+
 function displayQuestion(){
-    questionP.innerText = currentQuestion + " = ?";
-    
+    questionP.innerText = currentQuestion;
 }
 
 function checkAnswer(){
-    if(Number(answerInput.value) === currentAnswer ){ 
+    if(String(answerInput.value) === currentAnswer ){ 
     resultP.innerText = "Correct answer";
     addScore();
     displayScore();
@@ -78,7 +65,7 @@ function displayScore(){
 }
 
 function displayPopupScore(){
-    totalscoreP.innerText = "Je score is: " + score + " Aantal fout: " + scoreWrong;
+    totalscoreP.innerHTML = "Je score is: " + score + " Aantal fout: " + scoreWrong;
 }
 
 function displayCountdown(){
@@ -103,8 +90,7 @@ checkBtn.addEventListener("click", function(){
     displayQuestion();
 });
 
-
-generateQuestion();
-displayQuestion();
+generateQuestion()
+displayQuestion()
 displayScore();
 displayCountdown();
